@@ -71,6 +71,7 @@ public class ProcessInput1 extends HttpServlet {
 
 					connection = DriverManager.getConnection(jdbcUrl, username, password);
 
+					//statement
 					Statement statement = connection.createStatement();
 
 					String x = request.getParameter("EmployeeID");
@@ -79,6 +80,7 @@ public class ProcessInput1 extends HttpServlet {
 
 					String sql = "insert into Employee values('" + x + "','" + y + "')";
 
+					//excecute statemetn
 					statement.executeUpdate(sql);
 
 					out.println("<h1> Record successfully inserted</h1>");
@@ -106,7 +108,6 @@ public class ProcessInput1 extends HttpServlet {
 				throw new RuntimeException("Cannot connect the database!", e);
 
 			}
-
 		}
 
 	}
